@@ -30,11 +30,12 @@ export class NotificationService {
    * Show error message
    */
   error(message: string, title: string = 'Error', duration: number = 5000): void {
-    this.toastr.error(message, title, {
+/*    this.toastr.error(message, title, {
       timeOut: duration,
       progressBar: true,
       closeButton: true
-    });
+    });*/
+    console.error(`Error: ${title} - ${message}`);
   }
 
   /**

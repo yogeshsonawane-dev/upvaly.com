@@ -41,70 +41,6 @@
   </div>
 </section>
 
-<!-- Service Health Overview -->
-<section class="bg-slate-800 border-y border-slate-700 py-8">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-6">
-      <h2 class="text-xl font-bold text-white mb-2">Service Health Status</h2>
-      <p class="text-slate-300 text-sm">Real-time status of all Upvaly products</p>
-    </div>
-    <div class="grid sm:grid-cols-3 gap-4">
-      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-xl p-4 hover:shadow-lg transition-all">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="font-bold text-white text-lg">Famvest</h3>
-          <i class="fas {{ getStatusIcon(healthStatus['famvest']?.ui) }} {{ getStatusColor(healthStatus['famvest']?.ui) }}"></i>
-        </div>
-        <div class="space-y-2 text-sm">
-          <div class="flex justify-between">
-            <span class="text-slate-400">UI Status:</span>
-            <span class="{{ getStatusColor(healthStatus['famvest']?.ui) }} font-semibold">{{ healthStatus['famvest']?.ui || 'unknown' }}</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-slate-400">API Status:</span>
-            <span class="{{ getStatusColor(healthStatus['famvest']?.api) }} font-semibold">{{ healthStatus['famvest']?.api || 'unknown' }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-xl p-4 hover:shadow-lg transition-all">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="font-bold text-white text-lg">Netly</h3>
-          <i class="fas {{ getStatusIcon(healthStatus['netly']?.ui) }} {{ getStatusColor(healthStatus['netly']?.ui) }}"></i>
-        </div>
-        <div class="space-y-2 text-sm">
-          <div class="flex justify-between">
-            <span class="text-slate-400">UI Status:</span>
-            <span class="{{ getStatusColor(healthStatus['netly']?.ui) }} font-semibold">{{ healthStatus['netly']?.ui || 'unknown' }}</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-slate-400">API Status:</span>
-            <span class="{{ getStatusColor(healthStatus['netly']?.api) }} font-semibold">{{ healthStatus['netly']?.api || 'unknown' }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-xl p-4 hover:shadow-lg transition-all">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="font-bold text-white text-lg">FinAPI</h3>
-          <i class="fas {{ getStatusIcon(healthStatus['finapi']?.ui) }} {{ getStatusColor(healthStatus['finapi']?.ui) }}"></i>
-        </div>
-        <div class="space-y-2 text-sm">
-          <div class="flex justify-between">
-            <span class="text-slate-400">UI Status:</span>
-            <span class="{{ getStatusColor(healthStatus['finapi']?.ui) }} font-semibold">{{ healthStatus['finapi']?.ui || 'unknown' }}</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-slate-400">API Status:</span>
-            <span class="{{ getStatusColor(healthStatus['finapi']?.api) }} font-semibold">{{ healthStatus['finapi']?.api || 'unknown' }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-4">
-      <button routerLink="/health" class="text-teal-400 hover:text-teal-300 text-sm font-medium transition-colors">
-        View detailed health status <i class="fas fa-arrow-right ml-1"></i>
-      </button>
-    </div>
-  </div>
-</section>
 
 <!-- Products Overview -->
 <section class="bg-gradient-to-b from-slate-900 to-slate-950 py-12 sm:py-16 lg:py-20">
@@ -120,7 +56,7 @@
           <i class="fas fa-users text-purple-300 text-2xl"></i>
         </div>
         <h3 class="font-bold text-xl text-white mb-3 group-hover:text-purple-300 transition-colors">Famvest</h3>
-        <p class="text-slate-300 text-base leading-relaxed font-medium mb-4">Family portfolio management platform for tracking investments, analyzing performance, and making data-driven financial decisions.</p>
+        <p class="text-slate-300 text-base leading-relaxed font-medium mb-4">Smart Family Investing platform for tracking investments, analyzing performance, and making data-driven financial decisions.</p>
         <div class="flex items-center text-purple-400 font-semibold">
           <span>Learn More</span>
           <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
@@ -150,6 +86,59 @@
           <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Service Health Overview -->
+<section class="bg-slate-800 border-y border-slate-700 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-6">
+      <h2 class="text-xl font-bold text-white mb-2">Service Health Status</h2>
+      <p class="text-slate-300 text-sm">Real-time status of all Upvaly products</p>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-xl p-4 hover:shadow-lg transition-all">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-bold text-white text-lg">Famvest</h3>
+          <i class="fas {{ getStatusIcon(healthStatus['famvest']?.api) }} {{ getStatusColor(healthStatus['famvest']?.api) }}"></i>
+        </div>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between">
+            <span class="text-slate-400">API Status:</span>
+            <span class="{{ getStatusColor(healthStatus['famvest']?.api) }} font-semibold">{{ healthStatus['famvest']?.api || 'unknown' }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-xl p-4 hover:shadow-lg transition-all">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-bold text-white text-lg">Netly</h3>
+          <i class="fas {{ getStatusIcon(healthStatus['netly']?.api) }} {{ getStatusColor(healthStatus['netly']?.api) }}"></i>
+        </div>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between">
+            <span class="text-slate-400">API Status:</span>
+            <span class="{{ getStatusColor(healthStatus['netly']?.api) }} font-semibold">{{ healthStatus['netly']?.api || 'unknown' }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-xl p-4 hover:shadow-lg transition-all">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-bold text-white text-lg">FinAPI</h3>
+          <i class="fas {{ getStatusIcon(healthStatus['finapi']?.api) }} {{ getStatusColor(healthStatus['finapi']?.api) }}"></i>
+        </div>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between">
+            <span class="text-slate-400">API Status:</span>
+            <span class="{{ getStatusColor(healthStatus['finapi']?.api) }} font-semibold">{{ healthStatus['finapi']?.api || 'unknown' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <button routerLink="/health" class="text-teal-400 hover:text-teal-300 text-sm font-medium transition-colors">
+        View detailed health status <i class="fas fa-arrow-right ml-1"></i>
+      </button>
     </div>
   </div>
 </section>

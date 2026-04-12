@@ -268,8 +268,8 @@ The application should display real-time health status of all Upvaly products by
 
 **API Health Endpoints (Deep Health Check)**
 
-* [https://api.famvest.upvaly.com/public/health](https://api.famvest.upvaly.com/public/health)
-* [https://api.netly.upvaly.com/public/health](https://api.netly.upvaly.com/public/health)
+* [https://api.famvest.upvaly.com/api/public/health](https://api.famvest.upvaly.com/api/public/health)
+* [https://api.netly.upvaly.com/api/public/health](https://api.netly.upvaly.com/api/public/health)
 * [https://api.finapi.upvaly.com/api/public/health](https://api.finapi.upvaly.com/api/public/health)
 
 **Expected Response Format**
@@ -459,5 +459,11 @@ The application should display real-time health status of all Upvaly products by
 
 ---
 
+## Incremental Changes
+1. Remove the UI health check. Only perform API Health Check.
+2. Use diffent shade color for landing page and famvest, its same currently
+3. Similar to landing page image, use image for famvest (famvest.png) and netly(netly.png) as well. dont show cards which showing now. finapi can remain as is.
+4. Remove how it works in health status page
+5. Bring Our Products section above to Service Health Status section ln landing page
 
 

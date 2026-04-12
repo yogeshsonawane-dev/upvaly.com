@@ -7,15 +7,10 @@ import { Component, OnInit } from '@angular/core';
   standalone: false
 })
 export class FinapiComponent implements OnInit {
-  activeTab = 'mf';
   mfEndpoints: any[] = [];
   ipoEndpoints: any[] = [];
   slides: any[] = [];
   currentSlide = 0;
-  stats: any = null;
-  statsLoading = false;
-  tryIt: any = {};
-  tryItIpo: any = {};
 
   ngOnInit() {
     this.initializeData();
@@ -30,30 +25,60 @@ export class FinapiComponent implements OnInit {
     this.ipoEndpoints = [
       { key: 'ipo', name: 'IPO Details', path: '/api/ipo' }
     ];
+    this.currentSlide = 0;
     this.slides = [
-      { title: 'Mutual Funds', command: 'curl "https://finapi.upvaly.com/api/mutual-funds/schemes"', response: { status: 'success', statusCode: 200, message: 'Schemes retrieved', data: [{ schemeCode: 'INF123', schemeName: 'Sample Fund', latestNav: 45.67 }] } },
-      { title: 'IPO Details', command: 'curl "https://finapi.upvaly.com/api/ipo"', response: { status: 'success', statusCode: 200, message: 'IPO data retrieved', data: [{ symbol: 'SAMPLE', type: 'Mainline', name: 'Sample IPO' }] } }
+      {
+        title: 'Mutual Funds',
+        command: '"https://finapi.upvaly.com/api/mf/isin/INF879O01027"',
+        response: {
+          status: 'success',
+          statusCode: "200",
+          message: 'Mutual Fund record fetched successfully',
+          data:[
+            {
+              schemeCode: '122639',
+              schemeName: 'Parag Parikh Flexi Cap Fund',
+              isinDivPayout: 'INF879O01027',
+              latestNav: "87.841",
+            }
+          ]
+        }
+      },
+      {
+        title: 'IPO Details',
+        command: '"https://finapi.upvaly.com/api/ipo"',
+        response: {
+          status: 'success',
+          statusCode: "200",
+          message: 'IPO details fetched successfully',
+          data: [
+            {
+              "symbol": "OMPOWER",
+              "name": "Om Power Transmission",
+              "priceRange": "₹166 – ₹175",
+              "status": "LIVE",
+            }
+          ]
+        }
+      },
+      {
+        title: 'Market Holidays',
+        command: '"https://finapi.upvaly.com/api/exchange/holidays"',
+        response: {
+          status: 'success',
+          statusCode: "200",
+          message: 'Market holidays fetched successfully',
+          data: [
+            {
+              date: "2026-01-26",
+              description: 'Republic Day',
+              holidayType: 'TRADING_HOLIDAY',
+              closedExchanges: ["NSE", "NFO", "CDS", "BSE", "BFO"],
+            }
+          ]
+        }
+      }
     ];
-    this.stats = {
-      totalSchemes: 14000,
-      totalFundHouses: 45,
-      navHistorySince: '2006-01-01',
-      totalNavRecords: 5000000,
-      lastUpdatedAt: new Date(),
-      lastNavDate: '2024-04-12'
-    };
-  }
-
-  setActiveTab(tab: string) {
-    this.activeTab = tab;
-  }
-
-  scrollTo(section: string) {
-    // Mock scroll
-  }
-
-  refreshUI() {
-    // Mock refresh
   }
 
   prevSlide() {
@@ -72,64 +97,11 @@ export class FinapiComponent implements OnInit {
     return Array.isArray(data);
   }
 
-  formatLargeNumber(num: number): string {
-    return num.toLocaleString();
-  }
-
   formatNumber(num: number): string {
     return num.toString();
-  }
-
-  getYearsSinceData(date: string): string {
-    const years = new Date().getFullYear() - new Date(date).getFullYear();
-    return years.toString();
-  }
-
-  formatDateTime(date: Date): string {
-    return date.toLocaleString();
   }
 
   formatDate(date: string): string {
     return new Date(date).toLocaleDateString();
   }
-
-  executeApi(endpoint: any) {
-    // Mock API execution
-  }
-
-  callIpoEndpoint(key: string) {
-    // Mock
-  }
-
-  hasTextParams(endpoint: any): boolean {
-    return endpoint.params?.some((p: any) => p.type === 'string');
-  }
-
-  getTextParams(endpoint: any): any[] {
-    return endpoint.params?.filter((p: any) => p.type === 'string') || [];
-  }
-
-  hasDateParams(endpoint: any): boolean {
-    return endpoint.params?.some((p: any) => p.type === 'date');
-  }
-
-  getDateParams(endpoint: any): any[] {
-    return endpoint.params?.filter((p: any) => p.type === 'date') || [];
-  }
-
-  hasNumberParams(endpoint: any): boolean {
-    return endpoint.params?.some((p: any) => p.type === 'number');
-  }
-
-  getNumberParams(endpoint: any): any[] {
-    return endpoint.params?.filter((p: any) => p.type === 'number') || [];
-  }
-
-  formatJson(data: any): string {
-    return JSON.stringify(data, null, 2);
-  }
-
-  brandTitle = 'FinAPI';
-  brandSubtitle = 'Financial Data API';
-  mobileMenuOpen = false;
 }

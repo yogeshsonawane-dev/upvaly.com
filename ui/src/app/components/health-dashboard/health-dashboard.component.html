@@ -25,20 +25,11 @@
       <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-2xl p-8">
         <div class="flex items-center justify-between mb-6">
           <h2 class="text-2xl font-bold text-white">Famvest</h2>
-          <div class="flex items-center gap-2">
-            <span class="text-xs text-slate-400">UI</span>
-            <i class="fas {{ getStatusIcon(healthStatus['famvest'].ui) }} {{ getStatusColor(healthStatus['famvest'].ui) }}"></i>
-          </div>
+
         </div>
 
         <div class="space-y-4 mb-6">
-          <div class="flex justify-between items-center p-3 bg-slate-800/50 rounded-lg">
-            <span class="text-slate-300">UI Status</span>
-            <div class="flex items-center gap-2">
-              <span class="{{ getStatusColor(healthStatus['famvest'].ui) }} font-semibold">{{ healthStatus['famvest'].ui || 'unknown' }}</span>
-              <div class="w-3 h-3 rounded-full {{ getStatusBgColor(healthStatus['famvest'].ui) }}"></div>
-            </div>
-          </div>
+
           <div class="flex justify-between items-center p-3 bg-slate-800/50 rounded-lg">
             <span class="text-slate-300">API Status</span>
             <div class="flex items-center gap-2">
@@ -69,20 +60,11 @@
       <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-2xl p-8">
         <div class="flex items-center justify-between mb-6">
           <h2 class="text-2xl font-bold text-white">Netly</h2>
-          <div class="flex items-center gap-2">
-            <span class="text-xs text-slate-400">UI</span>
-            <i class="fas {{ getStatusIcon(healthStatus['netly'].ui) }} {{ getStatusColor(healthStatus['netly'].ui) }}"></i>
-          </div>
+
         </div>
 
         <div class="space-y-4 mb-6">
-          <div class="flex justify-between items-center p-3 bg-slate-800/50 rounded-lg">
-            <span class="text-slate-300">UI Status</span>
-            <div class="flex items-center gap-2">
-              <span class="{{ getStatusColor(healthStatus['netly'].ui) }} font-semibold">{{ healthStatus['netly'].ui || 'unknown' }}</span>
-              <div class="w-3 h-3 rounded-full {{ getStatusBgColor(healthStatus['netly'].ui) }}"></div>
-            </div>
-          </div>
+
           <div class="flex justify-between items-center p-3 bg-slate-800/50 rounded-lg">
             <span class="text-slate-300">API Status</span>
             <div class="flex items-center gap-2">
@@ -113,20 +95,11 @@
       <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-2xl p-8">
         <div class="flex items-center justify-between mb-6">
           <h2 class="text-2xl font-bold text-white">FinAPI</h2>
-          <div class="flex items-center gap-2">
-            <span class="text-xs text-slate-400">UI</span>
-            <i class="fas {{ getStatusIcon(healthStatus['finapi'].ui) }} {{ getStatusColor(healthStatus['finapi'].ui) }}"></i>
-          </div>
+
         </div>
 
         <div class="space-y-4 mb-6">
-          <div class="flex justify-between items-center p-3 bg-slate-800/50 rounded-lg">
-            <span class="text-slate-300">UI Status</span>
-            <div class="flex items-center gap-2">
-              <span class="{{ getStatusColor(healthStatus['finapi'].ui) }} font-semibold">{{ healthStatus['finapi'].ui || 'unknown' }}</span>
-              <div class="w-3 h-3 rounded-full {{ getStatusBgColor(healthStatus['finapi'].ui) }}"></div>
-            </div>
-          </div>
+
           <div class="flex justify-between items-center p-3 bg-slate-800/50 rounded-lg">
             <span class="text-slate-300">API Status</span>
             <div class="flex items-center gap-2">
@@ -178,41 +151,3 @@
   </div>
 </section>
 
-<!-- Monitoring Info -->
-<section class="bg-gradient-to-b from-slate-900 to-slate-950 py-12">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-2xl font-bold text-white mb-4">How It Works</h2>
-    <p class="text-slate-300 text-sm lg:text-base mb-8">The health dashboard continuously monitors service availability and performance</p>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="bg-slate-800/50 rounded-xl p-6">
-        <div class="w-12 h-12 bg-blue-600/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-globe text-blue-400 text-xl"></i>
-        </div>
-        <h3 class="text-white font-semibold mb-2">UI Endpoints</h3>
-        <p class="text-slate-400 text-sm">Checks HTTP 200 response from main application URLs</p>
-      </div>
-      <div class="bg-slate-800/50 rounded-xl p-6">
-        <div class="w-12 h-12 bg-green-600/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-server text-green-400 text-xl"></i>
-        </div>
-        <h3 class="text-white font-semibold mb-2">API Health</h3>
-        <p class="text-slate-400 text-sm">Validates backend services and database connectivity</p>
-      </div>
-      <div class="bg-slate-800/50 rounded-xl p-6">
-        <div class="w-12 h-12 bg-purple-600/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-database text-purple-400 text-xl"></i>
-        </div>
-        <h3 class="text-white font-semibold mb-2">Dependencies</h3>
-        <p class="text-slate-400 text-sm">Monitors Postgres, Redis, and other infrastructure components</p>
-      </div>
-      <div class="bg-slate-800/50 rounded-xl p-6">
-        <div class="w-12 h-12 bg-orange-600/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-clock text-orange-400 text-xl"></i>
-        </div>
-        <h3 class="text-white font-semibold mb-2">Auto Refresh</h3>
-        <p class="text-slate-400 text-sm">Updates every 30 seconds with real-time status information</p>
-      </div>
-    </div>
-  </div>
-</section>

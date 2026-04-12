@@ -20,15 +20,12 @@ export interface ServiceHealth {
 export class HealthService {
   private services = {
     famvest: {
-      ui: 'https://famvest.upvaly.com',
       api: 'https://api.famvest.upvaly.com/public/health'
     },
     netly: {
-      ui: 'https://netly.upvaly.com',
-      api: 'https://api.netly.upvaly.com/public/health'
+      api: 'https://api.netly.upvaly.com/api/public/health'
     },
     finapi: {
-      ui: 'https://finapi.upvaly.com',
       api: 'https://api.finapi.upvaly.com/api/public/health'
     }
   };
@@ -63,17 +60,13 @@ export class HealthService {
   private checkService(serviceName: string): Observable<HealthStatus> {
     const service = this.services[serviceName as keyof typeof this.services];
 
-    const uiCheck = this.checkEndpoint(service.ui).pipe(
-      catchError(() => of('down' as const))
-    );
-
     const apiCheck = this.checkApiHealth(service.api).pipe(
       catchError(() => of(null))
     );
 
-    return combineLatest([uiCheck, apiCheck]).pipe(
-      map(([ui, apiResult]) => ({
-        ui,
+    return apiCheck.pipe(
+      map(apiResult => ({
+        ui: this.mapApiStatus(apiResult) === 'healthy' ? 'healthy' as const : 'down' as const,
         api: this.mapApiStatus(apiResult),
         dependencies: apiResult?.dependencies,
         lastChecked: new Date()
@@ -88,7 +81,7 @@ export class HealthService {
     );
   }
 
-  private checkApiHealth(url: string): Observable<any> {
+    private checkApiHealth(url: string): Observable<any> {
     return this.http.get(url).pipe(
       catchError(() => of(null))
     );

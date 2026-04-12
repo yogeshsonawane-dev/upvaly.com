@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Upvaly';
   brandTitle = 'Upvaly';
-  brandSubtitle = 'Financial Hub';
+  brandSubtitle = 'Level Up Daily';
   mobileMenuOpen = false;
 
   constructor(
