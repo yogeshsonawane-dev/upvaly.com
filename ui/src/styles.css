@@ -1,0 +1,230 @@
+/* Font Awesome Icons */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+/* Angular Material Theme */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Critical Base Styles - Load First to Prevent FOUC */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Toastr Custom Styles - Ensure proper display in production */
+#toast-container {
+  z-index: 999999 !important;
+  pointer-events: none;
+  position: fixed;
+}
+
+#toast-container > div {
+  pointer-events: auto;
+  opacity: 1 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  margin-bottom: 10px;
+}
+
+.toast-top-right {
+  top: 12px !important;
+  right: 12px !important;
+}
+
+.toast-success {
+  background-color: #51a351 !important;
+  color: white !important;
+}
+
+.toast-error {
+  background-color: #bd362f !important;
+  color: white !important;
+}
+
+/* Material Tooltip Styles */
+.mat-tooltip {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  background-color: #323232 !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  padding: 8px 12px !important;
+  max-width: 250px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  z-index: 2000 !important;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  white-space: normal !important;
+  text-align: center !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+}
+
+/* Material Tooltip Container */
+.mat-tooltip-handset {
+  font-size: 14px !important;
+  padding: 8px 16px !important;
+}
+
+/* Light theme tooltip (optional variant) */
+.mat-tooltip.light-tooltip {
+  background-color: #f5f5f5 !important;
+  color: #333333 !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+/* Ensure tooltips appear above other elements */
+.cdk-overlay-container {
+  z-index: 2000 !important;
+}
+
+.cdk-overlay-pane {
+  z-index: 2000 !important;
+}
+
+.cdk-overlay-pane.mat-tooltip-handset {
+  background-color: #323232 !important;
+  color: #ffffff !important;
+}
+
+/* Tooltip Content Container - Additional support */
+.mat-tooltip-content {
+  background-color: #323232 !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  max-width: 250px !important;
+  white-space: normal !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Smooth fade-in animation */
+@keyframes mat-tooltip-show {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth fade-out animation */
+@keyframes mat-tooltip-hide {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* Tooltip show animation state */
+.mat-tooltip-show,
+.mat-tooltip:not(.mat-tooltip-hide) {
+  animation: mat-tooltip-show 200ms cubic-bezier(0.0, 0.0, 0.2, 1) forwards !important;
+}
+
+/* Tooltip hide animation state */
+.mat-tooltip-hide {
+  animation: mat-tooltip-hide 200ms cubic-bezier(0.4, 0.0, 1.0, 1.0) forwards !important;
+}
+
+/* Tooltip trigger hover state */
+[matTooltip] {
+  cursor: pointer;
+}
+
+[matTooltip]:hover {
+  cursor: pointer;
+}
+
+/* Enhanced tooltip for better visibility */
+.mat-tooltip {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Material Tooltip Wrapper Styles */
+.mat-mdc-tooltip {
+  font-size: 12px !important;
+  background-color: #323232 !important;
+  color: #ffffff !important;
+}
+
+
+.toast-info {
+  background-color: #2f96b4 !important;
+  color: white !important;
+}
+
+.toast-warning {
+  background-color: #f89406 !important;
+  color: white !important;
+}
+
+/* Custom Global Styles */
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+}
+
+button {
+  font-family: inherit;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Hero Terminal Styles */
+.hero-terminal {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  position: relative;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid #334155;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}

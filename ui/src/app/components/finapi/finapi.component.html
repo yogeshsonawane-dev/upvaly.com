@@ -1,0 +1,304 @@
+<section class="relative bg-gradient-to-br from-slate-950 via-orange-950 to-slate-900 pt-24 sm:pt-20 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-orange-600/15 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-3xl"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-7">
+    <div class="grid lg:grid-cols-2 gap-12 sm:gap-12 items-center">
+      <div class="space-y-8 min-w-0">
+        <div class="inline-flex items-center gap-2 bg-orange-500/15 border border-orange-500/30 rounded-full px-4 py-2">
+          <span class="w-2.5 h-2.5 bg-orange-400 rounded-full animate-pulse"></span>
+          <span class="text-orange-300 text-xs sm:text-sm font-semibold tracking-wide">Free Financial Data API</span>
+        </div>
+        <h1 class="text-5xl sm:text-6xl lg:text-6xl font-black text-white leading-tight">
+          FinAPI<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-400 to-teal-400">Platform</span>
+        </h1>
+        <p class="text-slate-300 text-base sm:text-base leading-relaxed max-w-lg font-medium">Provides completely free access to Indian financial market data, designed specifically for developers and data-driven applications with 14,000+ mutual fund schemes and historical NAV data since 2006.</p>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <a href="https://finapi.upvaly.com" target="_blank" class="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white px-7 sm:px-9 sm:py-2.5 shadow-lg shadow-orange-600/40 hover:shadow-orange-600/60 font-semibold py-2.5 rounded-lg transition-all flex items-center justify-center gap-2 text-sm sm:text-sm">
+            <i class="fas fa-external-link-alt"></i><span class="hidden sm:inline">Explore FinAPI</span><span class="sm:hidden">FinAPI</span>
+          </a>
+          <button class="border-2 border-orange-500/40 hover:border-orange-400/60 text-slate-200 hover:text-white bg-slate-800/30 hover:bg-slate-700/30 px-7 sm:px-9 sm:py-2.5 backdrop-blur-sm font-semibold py-2.5 rounded-lg transition-all flex items-center justify-center gap-2 text-sm sm:text-sm">
+            <i class="fas fa-code"></i><span class="hidden sm:inline">View Docs</span><span class="sm:hidden">Docs</span>
+          </button>
+        </div>
+      </div>
+      <div class="relative min-w-0">
+        <div class="hero-terminal bg-slate-900 border border-slate-700/80 rounded-2xl overflow-hidden shadow-2xl">
+          <div class="flex items-center gap-2 px-5 py-3.5 bg-slate-800 border-b border-slate-700">
+            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+            <span class="ml-3 text-slate-500 text-xs font-mono">{{ slides[currentSlide].title }}</span>
+          </div>
+          <div class="p-4 sm:p-5 font-mono text-xs sm:text-sm space-y-2 overflow-x-auto max-w-full">
+            <div class="border-b border-slate-700 pb-3">
+              <p class="text-slate-400 text-xs mb-2 uppercase tracking-widest font-bold">Request</p>
+              <p class="flex flex-wrap gap-1 break-all"><span class="text-emerald-400">curl</span><span class="text-slate-300">{{ slides[currentSlide].command }}</span></p>
+            </div>
+            <div>
+              <p class="text-slate-400 text-xs mb-2 uppercase tracking-widest font-bold">Response <span class="w-2 h-2 rounded-full bg-emerald-400"></span><span class="text-xs text-emerald-400 font-mono">200 OK</span></p>
+              <p class="text-slate-500 text-xs mb-1">JSON</p>
+              <div class="bg-slate-800/50 rounded p-3 border border-slate-700 overflow-x-auto">
+                <p class="leading-relaxed">
+                  <span class="text-yellow-400"></span><span class="text-slate-300">&#123;</span>
+                </p>
+                <p class="leading-relaxed ml-4">
+                  <span class="text-slate-400">"status"</span><span class="text-slate-300">:</span> <span class="text-green-400">"{{ slides[currentSlide].response.status }}"</span><span class="text-slate-300">,</span>
+                </p>
+                <p class="leading-relaxed ml-4">
+                  <span class="text-slate-400">"statusCode"</span><span class="text-slate-300">:</span> <span class="text-yellow-300">{{ slides[currentSlide].response.statusCode }}</span><span class="text-slate-300">,</span>
+                </p>
+                <p class="leading-relaxed ml-4">
+                  <span class="text-slate-400">"message"</span><span class="text-slate-300">:</span> <span class="text-green-400">"{{ slides[currentSlide].response.message }}"</span><span class="text-slate-300">,</span>
+                </p>
+                <p class="leading-relaxed ml-4">
+                  <span class="text-slate-400">"data"</span><span class="text-slate-300">:</span> <span class="text-green-400" *ngIf="isArray(slides[currentSlide].response.data)">&#91;</span><span class="text-slate-300" *ngIf="!isArray(slides[currentSlide].response.data)">&#123;</span>
+                </p>
+                <ng-container *ngIf="slides[currentSlide].title === 'Mutual Funds'">
+                  <p class="leading-relaxed ml-8">
+                    <span class="text-slate-300">&#123;</span>
+                  </p>
+                  <p class="leading-relaxed ml-12">
+                    <span class="text-slate-400">"schemeCode"</span><span class="text-slate-300">:</span> <span class="text-green-400">"{{ $any(slides[currentSlide].response.data)[0].schemeCode }}"</span><span class="text-slate-300">,</span>
+                  </p>
+                  <p class="leading-relaxed ml-12">
+                    <span class="text-slate-400">"schemeName"</span><span class="text-slate-300">:</span> <span class="text-green-400">"{{ $any(slides[currentSlide].response.data)[0].schemeName }}"</span><span class="text-slate-300">,</span>
+                  </p>
+                  <p class="leading-relaxed ml-12">
+                    <span class="text-slate-400">"latestNav"</span><span class="text-slate-300">:</span> <span class="text-yellow-300">{{ $any(slides[currentSlide].response.data)[0].latestNav }}</span>
+                  </p>
+                  <p class="leading-relaxed ml-8">
+                    <span class="text-slate-300">&#125;</span>
+                  </p>
+                </ng-container>
+                <ng-container *ngIf="slides[currentSlide].title === 'IPO Details'">
+                  <p class="leading-relaxed ml-8">
+                    <span class="text-slate-300">&#123;</span>
+                  </p>
+                  <p class="leading-relaxed ml-12">
+                    <span class="text-slate-400">"symbol"</span><span class="text-slate-300">:</span> <span class="text-green-400">"{{ $any(slides[currentSlide].response.data)[0].symbol }}"</span><span class="text-slate-300">,</span>
+                  </p>
+                  <p class="leading-relaxed ml-12">
+                    <span class="text-slate-400">"type"</span><span class="text-slate-300">:</span> <span class="text-green-400">"{{ $any(slides[currentSlide].response.data)[0].type }}"</span><span class="text-slate-300">,</span>
+                  </p>
+                  <p class="leading-relaxed ml-12">
+                    <span class="text-slate-400">"name"</span><span class="text-slate-300">:</span> <span class="text-green-400">{{ $any(slides[currentSlide].response.data)[0].name }}</span>
+                  </p>
+                  <p class="leading-relaxed ml-8">
+                    <span class="text-slate-300">&#125;</span>
+                  </p>
+                </ng-container>
+                <p class="leading-relaxed ml-4">
+                  <span class="text-slate-300" *ngIf="isArray(slides[currentSlide].response.data)">&#93;</span><span class="text-slate-300" *ngIf="!isArray(slides[currentSlide].response.data)">&#125;</span>
+                </p>
+                <p class="leading-relaxed">
+                  <span class="text-slate-300">&#125;</span><span class="text-yellow-400"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-2">
+            <button (click)="prevSlide()" class="w-8 h-8 bg-slate-800/80 hover:bg-slate-700/80 rounded-full flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+              <i class="fas fa-chevron-left text-xs"></i>
+            </button>
+            <div class="flex gap-1">
+              <button *ngFor="let slide of slides; let i = index" (click)="goToSlide(i)" [ngClass]="i === currentSlide ? 'bg-orange-500' : 'bg-slate-600'" class="w-2 h-2 rounded-full transition-colors"></button>
+            </div>
+            <button (click)="nextSlide()" class="w-8 h-8 bg-slate-800/80 hover:bg-slate-700/80 rounded-full flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+              <i class="fas fa-chevron-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- API Features -->
+<section class="bg-slate-800 border-y border-slate-700 py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8">
+      <h2 class="text-2xl lg:text-3xl font-bold text-white mb-3">API Features</h2>
+      <p class="text-slate-300 text-sm lg:text-base">Zero-auth, plug-and-play financial data access</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="bg-gradient-to-br from-orange-900/50 to-orange-900/25 border border-orange-700/60 hover:border-orange-500/80 rounded-2xl p-6 sm:p-7 hover:shadow-lg hover:shadow-orange-600/20 transition-all duration-300">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="w-12 h-12 bg-orange-600/30 group-hover:bg-orange-600/40 rounded-xl flex items-center justify-center transition-colors shadow-lg shadow-orange-600/20">
+            <i class="fas fa-layer-group text-orange-300 text-lg"></i>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-white text-lg">14,000+ MF Schemes</h3>
+            <span class="inline-block text-xs bg-emerald-600/80 text-emerald-100 px-3 py-1 rounded-full font-bold mt-1">LIVE</span>
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">Access comprehensive mutual fund data with NAV history since 2006</p>
+      </div>
+      <div class="bg-gradient-to-br from-purple-900/50 to-purple-900/25 border border-purple-700/60 hover:border-purple-500/80 rounded-2xl p-6 sm:p-7 hover:shadow-lg hover:shadow-purple-600/20 transition-all duration-300">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="w-12 h-12 bg-purple-600/30 group-hover:bg-purple-600/40 rounded-xl flex items-center justify-center transition-colors shadow-lg shadow-purple-600/20">
+            <i class="fas fa-chart-pie text-purple-300 text-lg"></i>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-white text-lg">IPO Data & GMP</h3>
+            <span class="inline-block text-xs bg-emerald-600/80 text-emerald-100 px-3 py-1 rounded-full font-bold mt-1">LIVE</span>
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">Real-time IPO details including Grey Market Premium trends</p>
+      </div>
+      <div class="bg-gradient-to-br from-teal-900/50 to-teal-900/25 border border-teal-700/60 hover:border-teal-500/80 rounded-2xl p-6 sm:p-7 hover:shadow-lg hover:shadow-teal-600/20 transition-all duration-300">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="w-12 h-12 bg-teal-600/30 group-hover:bg-teal-600/40 rounded-xl flex items-center justify-center transition-colors shadow-lg shadow-teal-600/20">
+            <i class="fas fa-building text-teal-300 text-lg"></i>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-white text-lg">Exchange Info</h3>
+            <span class="inline-block text-xs bg-emerald-600/80 text-emerald-100 px-3 py-1 rounded-full font-bold mt-1">LIVE</span>
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">Market holidays, trading timings, and exchange information</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="bg-gradient-to-b from-slate-900 to-slate-950 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8">
+      <h2 class="text-2xl lg:text-3xl font-bold text-white mb-3">Data Statistics</h2>
+      <p class="text-slate-300 text-sm lg:text-base">Comprehensive coverage of Indian financial markets</p>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
+      <div class="stat-card bg-gradient-to-br from-orange-900/40 to-orange-900/20 border border-orange-700/40 hover:border-orange-600/60 rounded-2xl p-6 sm:p-8 shadow-lg shadow-orange-950/30">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-orange-600/30 rounded-lg flex items-center justify-center">
+            <i class="fas fa-layer-group text-orange-300 text-sm"></i>
+          </div>
+          <span class="text-slate-400 text-xs uppercase tracking-wider font-bold">MF Schemes</span>
+        </div>
+        <div class="text-3xl sm:text-4xl font-black text-white mb-2 flex items-center gap-2">
+          {{ formatLargeNumber(stats.totalSchemes) }}
+          <span class="text-orange-400 text-2xl"><i class="fas fa-arrow-up-right animate-pulse"></i></span>
+        </div>
+        <div class="text-slate-500 text-xs sm:text-sm font-medium">Mutual fund schemes</div>
+      </div>
+      <div class="stat-card bg-gradient-to-br from-purple-900/40 to-purple-900/20 border border-purple-700/40 hover:border-purple-600/60 rounded-2xl p-6 sm:p-8 shadow-lg shadow-purple-950/30">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-purple-600/30 rounded-lg flex items-center justify-center">
+            <i class="fas fa-building text-purple-300 text-sm"></i>
+          </div>
+          <span class="text-slate-400 text-xs uppercase tracking-wider font-bold">Fund Houses</span>
+        </div>
+        <div class="text-3xl sm:text-4xl font-black text-white mb-2 flex items-center gap-2">
+          {{ formatNumber(stats.totalFundHouses) }}
+          <span class="text-purple-400 text-2xl"><i class="fas fa-arrow-up-right animate-pulse"></i></span>
+        </div>
+        <div class="text-slate-500 text-xs sm:text-sm font-medium">SEBI registered AMCs</div>
+      </div>
+      <div class="stat-card bg-gradient-to-br from-teal-900/40 to-teal-900/20 border border-teal-700/40 hover:border-teal-600/60 rounded-2xl p-6 sm:p-8 shadow-lg shadow-teal-950/30">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-teal-600/30 rounded-lg flex items-center justify-center">
+            <i class="fas fa-database text-teal-300 text-sm"></i>
+          </div>
+          <span class="text-slate-400 text-xs uppercase tracking-wider font-bold">Data Since</span>
+        </div>
+        <div class="text-3xl sm:text-4xl font-black text-white mb-2">{{ getYearsSinceData(stats.navHistorySince) }}</div>
+        <div class="text-slate-500 text-xs sm:text-sm font-medium">Years of NAV history</div>
+      </div>
+      <div class="stat-card bg-gradient-to-br from-green-900/40 to-green-900/20 border border-green-700/40 hover:border-green-600/60 rounded-2xl p-6 sm:p-8 shadow-lg shadow-green-950/30">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-green-600/30 rounded-lg flex items-center justify-center">
+            <i class="fas fa-sync text-green-300 text-sm"></i>
+          </div>
+          <span class="text-slate-400 text-xs uppercase tracking-wider font-bold">Updates</span>
+        </div>
+        <div class="text-3xl sm:text-4xl font-black text-white mb-2">2<span class="text-green-400 text-2xl sm:text-3xl">hrs</span></div>
+        <div class="text-slate-500 text-xs sm:text-sm font-medium">NAV refresh frequency</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MCP Server Section -->
+<section class="bg-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <span class="inline-block text-xl font-bold tracking-widest text-orange-400 uppercase mb-3">AI Integration</span>
+      <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">FinAPI MCP Server</h2>
+      <p class="text-slate-300 text-sm lg:text-base">Enable AI assistants to access financial market data programmatically</p>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-8 items-center">
+      <div class="space-y-6">
+        <div class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700/50">
+          <h3 class="text-white font-bold text-lg mb-4">Sample MCP Configuration</h3>
+          <pre class="bg-slate-900 rounded-lg p-4 text-sm text-slate-300 overflow-x-auto"><code>{{ '{' }}
+  "mcpServers": {{ '{' }}
+    "finapi": {{ '{' }}
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.finapi.upvaly.com/mcp"
+      ]
+    {{ '}' }}
+  {{ '}' }}
+{{ '}' }}</code></pre>
+        </div>
+        <div class="space-y-4">
+          <h3 class="text-white font-bold text-xl">Use Cases</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-green-400 mt-1"></i>
+              <span class="text-slate-300">AI-driven mutual fund analysis</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-green-400 mt-1"></i>
+              <span class="text-slate-300">IPO trend analysis with GMP insights</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-green-400 mt-1"></i>
+              <span class="text-slate-300">Quant research assistants</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-green-400 mt-1"></i>
+              <span class="text-slate-300">Automated financial dashboards</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-slate-800/50 to-slate-800/25 border border-slate-700/50 rounded-2xl p-8">
+        <h3 class="text-white font-bold text-xl mb-6">Security & Access</h3>
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-green-600/30 rounded-lg flex items-center justify-center">
+              <i class="fas fa-unlock text-green-400"></i>
+            </div>
+            <div>
+              <div class="text-white font-semibold">No Authentication Required</div>
+              <div class="text-slate-400 text-sm">Open access for developers</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-blue-600/30 rounded-lg flex items-center justify-center">
+              <i class="fas fa-shield-alt text-blue-400"></i>
+            </div>
+            <div>
+              <div class="text-white font-semibold">HTTPS Communication</div>
+              <div class="text-slate-400 text-sm">Secure data transmission</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-orange-600/30 rounded-lg flex items-center justify-center">
+              <i class="fas fa-code text-orange-400"></i>
+            </div>
+            <div>
+              <div class="text-white font-semibold">Developer-First Design</div>
+              <div class="text-slate-400 text-sm">Built for seamless integration</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

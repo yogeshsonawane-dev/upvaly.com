@@ -1,0 +1,112 @@
+# =========================
+
+# Angular / Node
+
+# =========================
+
+# Node modules
+
+node_modules/
+
+# Build output
+
+dist/
+build/
+out-tsc/
+
+ui/node_modules/
+
+# Build output
+
+ui/dist/
+ui/build/
+ui/out-tsc/
+
+# Angular cache
+
+.angular/
+ui/.angular/
+
+# Logs
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories
+
+jspm_packages/
+
+# Environment files
+
+.env
+.env.local
+.env.*.local
+
+# IDE settings (general)
+
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# =========================
+
+# IntelliJ / WebStorm
+
+# =========================
+
+.idea/
+*.iml
+
+# IntelliJ workspace files
+
+workspace.xml
+tasks.xml
+usage.statistics.xml
+dictionaries/
+shelf/
+
+# Generated files
+
+out/
+
+# =========================
+
+# OS Files
+
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# =========================
+
+# Testing
+
+# =========================
+
+coverage/
+
+# =========================
+
+# Misc
+
+# =========================
+
+tmp/
+temp/
+
+# System files
+
+*.log
+
+# Lock files (optional – keep if needed)
+
+# package-lock.json
+
+# yarn.lock
+
+# pnpm-lock.yaml
