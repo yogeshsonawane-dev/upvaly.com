@@ -268,7 +268,7 @@ The application should display real-time health status of all Upvaly products by
 
 **API Health Endpoints (Deep Health Check)**
 
-* [https://api.famvest.upvaly.com/api/public/health](https://api.famvest.upvaly.com/api/public/health)
+* [https://api.famvest.upvaly.com/rest/public/health](https://api.famvest.upvaly.com/rest/public/health)
 * [https://api.netly.upvaly.com/api/public/health](https://api.netly.upvaly.com/api/public/health)
 * [https://api.finapi.upvaly.com/api/public/health](https://api.finapi.upvaly.com/api/public/health)
 

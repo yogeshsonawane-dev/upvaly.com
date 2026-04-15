@@ -20,7 +20,7 @@ export interface ServiceHealth {
 export class HealthService {
   private services = {
     famvest: {
-      api: 'https://api.famvest.upvaly.com/public/health'
+      api: 'https://api.famvest.upvaly.com/rest/public/health'
     },
     netly: {
       api: 'https://api.netly.upvaly.com/api/public/health'
