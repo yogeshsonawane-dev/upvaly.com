@@ -1,80 +1,112 @@
-<section class="relative bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 pt-24 sm:pt-20 overflow-hidden">
+<!-- Hero Section -->
+<section class="relative bg-gradient-upvaly pt-28 sm:pt-32 pb-16 sm:pb-20 lg:pb-24 overflow-hidden">
   <div class="absolute inset-0 pointer-events-none overflow-hidden">
-    <div class="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-teal-600/10 rounded-full blur-3xl"></div>
-    <div class="absolute -top-40 -right-40 w-[300px] h-[300px] bg-orange-600/5 rounded-full blur-2xl"></div>
+    <div class="absolute top-20 left-1/4 w-[600px] h-[600px] bg-upvaly-600/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/3 w-[500px] h-[500px] bg-upvaly-500/8 rounded-full blur-3xl"></div>
+    <div class="absolute -top-40 -right-40 w-[400px] h-[400px] bg-upvaly-700/5 rounded-full blur-2xl"></div>
   </div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-7">
-    <div class="grid lg:grid-cols-2 gap-12 sm:gap-12 items-center">
-      <div class="space-y-8 min-w-0">
-        <div class="inline-flex items-center gap-2 bg-teal-500/15 border border-teal-500/30 rounded-full px-4 py-2">
-          <span class="w-2.5 h-2.5 bg-teal-400 rounded-full animate-pulse"></span>
-          <span class="text-teal-300 text-xs sm:text-sm font-semibold tracking-wide">Unified Financial Platform</span>
-        </div>
-        <h1 class="text-5xl sm:text-6xl lg:text-6xl font-black text-white leading-tight">
-          Discover<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-teal-400 to-orange-400">Upvaly</span><br>
-          Products
-        </h1>
-        <p class="text-slate-300 text-base sm:text-base leading-relaxed max-w-lg font-medium">A centralized hub for Famvest, Netly, and FinAPI — empowering families, individuals, and developers with comprehensive financial tools and data.</p>
-        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <button routerLink="/famvest" class="bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-500 hover:to-teal-400 text-white px-7 sm:px-9 sm:py-2.5 shadow-lg shadow-teal-600/40 hover:shadow-teal-600/60 font-semibold py-2.5 rounded-lg transition-all flex items-center justify-center gap-2 text-sm sm:text-sm">
-            <i class="fas fa-users"></i><span class="hidden sm:inline">Explore Famvest</span><span class="sm:hidden">Famvest</span>
-          </button>
-          <button routerLink="/netly" class="bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white px-7 sm:px-9 sm:py-2.5 shadow-lg shadow-purple-600/40 hover:shadow-purple-600/60 font-semibold py-2.5 rounded-lg transition-all flex items-center justify-center gap-2 text-sm sm:text-sm">
-            <i class="fas fa-chart-bar"></i><span class="hidden sm:inline">Explore Netly</span><span class="sm:hidden">Netly</span>
-          </button>
-          <button routerLink="/finapi" class="border-2 border-teal-500/40 hover:border-teal-400/60 text-slate-200 hover:text-white bg-slate-800/30 hover:bg-slate-700/30 px-7 sm:px-9 sm:py-2.5 backdrop-blur-sm font-semibold py-2.5 rounded-lg transition-all flex items-center justify-center gap-2 text-sm sm:text-sm">
-            <i class="fas fa-code"></i><span class="hidden sm:inline">Explore FinAPI</span><span class="sm:hidden">FinAPI</span>
-          </button>
-        </div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 sm:mb-16">
+      <div class="inline-flex items-center gap-2 bg-upvaly-600/20 border border-upvaly-500/40 rounded-full px-4 py-2.5 mb-6">
+        <span class="w-2 h-2 bg-upvaly-400 rounded-full animate-pulse"></span>
+        <span class="text-upvaly-300 text-xs sm:text-sm font-semibold tracking-wider">Unified Financial Platform</span>
+      </div>
+      <h1 class="text-6xl sm:text-7xl lg:text-7xl font-black text-white leading-tight mb-6">
+        Financial Freedom,<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-upvaly-400 via-upvaly-300 to-upvaly-500">Made Simple</span>
+      </h1>
+      <p class="text-upvaly-200 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto font-medium mb-8">Discover powerful financial tools designed for families, individuals, and developers. Manage investments, track wealth, and access market data—all in one place.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <button routerLink="/famvest" class="bg-gradient-to-r from-famvest-600 to-famvest-500 hover:from-famvest-500 hover:to-famvest-400 text-white px-8 sm:px-10 py-3.5 shadow-lg shadow-famvest-600/40 hover:shadow-famvest-600/60 font-semibold rounded-xl transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+          <i class="fas fa-users"></i><span>Famvest</span>
+        </button>
+        <button routerLink="/netly" class="bg-gradient-to-r from-netly-600 to-netly-500 hover:from-netly-500 hover:to-netly-400 text-white px-8 sm:px-10 py-3.5 shadow-lg shadow-netly-600/40 hover:shadow-netly-600/60 font-semibold rounded-xl transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+          <i class="fas fa-chart-bar"></i><span>Netly</span>
+        </button>
+        <button routerLink="/finapi" class="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white px-8 sm:px-10 py-3.5 shadow-lg shadow-orange-600/40 hover:shadow-orange-600/60 font-semibold rounded-xl transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+          <i class="fas fa-code"></i><span>FinAPI</span>
+        </button>
+      </div>
+      <div>
+        <a href="https://t.me/upvaly" target="_blank" class="inline-flex items-center gap-2 text-upvaly-100 hover:text-white font-semibold transition-colors">
+          <i class="fab fa-telegram text-lg"></i><span>Join the Community</span>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- Products Overview -->
-<section class="bg-gradient-to-b from-slate-900 to-slate-950 py-12 sm:py-16 lg:py-20">
+
+<!-- Our Products Section (Now above Health Status) -->
+<section class="bg-white py-16 sm:py-20 lg:py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-8">
-      <h2 class="text-2xl lg:text-3xl font-bold text-white mb-3">Our Products</h2>
-      <p class="text-slate-300 text-sm lg:text-base">Comprehensive financial solutions for every need</p>
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Our Products</h2>
+      <p class="text-gray-600 text-lg sm:text-xl max-w-2xl mx-auto">Comprehensive financial solutions tailored for every need</p>
     </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Famvest -->
-      <div class="bg-gradient-to-br from-purple-900/40 to-purple-900/20 border border-purple-700/40 hover:border-purple-600/60 rounded-2xl p-6 hover:shadow-lg hover:shadow-purple-600/20 transition-all group cursor-pointer" routerLink="/famvest">
-        <div class="w-14 h-14 bg-purple-600/30 group-hover:bg-purple-600/40 rounded-xl flex items-center justify-center mb-6 transition-colors shadow-lg shadow-purple-600/20">
-          <i class="fas fa-users text-purple-300 text-2xl"></i>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Famvest Card -->
+      <div class="group cursor-pointer" routerLink="/famvest">
+        <div class="relative bg-gradient-famvest rounded-2xl overflow-hidden mb-6 h-56 sm:h-64 shadow-lg hover:shadow-2xl transition-shadow">
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+          <img ngSrc="assets/famvest.png" alt="Famvest - Family Investment Management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width="400" height="280" />
         </div>
-        <h3 class="font-bold text-xl text-white mb-3 group-hover:text-purple-300 transition-colors">Famvest</h3>
-        <p class="text-slate-300 text-base leading-relaxed font-medium mb-4">Smart Family Investing platform for tracking investments, analyzing performance, and making data-driven financial decisions.</p>
-        <div class="flex items-center text-purple-400 font-semibold">
-          <span>Learn More</span>
-          <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-        </div>
-      </div>
-      <!-- Netly -->
-      <div class="bg-gradient-to-br from-teal-900/40 to-teal-900/20 border border-teal-700/40 hover:border-teal-600/60 rounded-2xl p-6 hover:shadow-lg hover:shadow-teal-600/20 transition-all group cursor-pointer" routerLink="/netly">
-        <div class="w-14 h-14 bg-teal-600/30 group-hover:bg-teal-600/40 rounded-xl flex items-center justify-center mb-6 transition-colors shadow-lg shadow-teal-600/20">
-          <i class="fas fa-chart-bar text-teal-300 text-2xl"></i>
-        </div>
-        <h3 class="font-bold text-xl text-white mb-3 group-hover:text-teal-300 transition-colors">Netly</h3>
-        <p class="text-slate-300 text-base leading-relaxed font-medium mb-4">Comprehensive net worth tracking across assets and liabilities with interactive dashboards and budgeting tools.</p>
-        <div class="flex items-center text-teal-400 font-semibold">
-          <span>Learn More</span>
-          <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+        <div class="px-2">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 bg-famvest-600/20 rounded-xl flex items-center justify-center">
+              <i class="fas fa-users text-famvest-600 text-lg"></i>
+            </div>
+            <h3 class="font-bold text-xl text-gray-900">Famvest</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">Smart family investment management. Track, analyze, and grow your family's wealth with real-time portfolio insights and Zerodha KiteConnect integration.</p>
+          <div class="flex items-center text-famvest-600 font-semibold group-hover:gap-2 transition-all">
+            <span>Explore</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </div>
         </div>
       </div>
-      <!-- FinAPI -->
-      <div class="bg-gradient-to-br from-orange-900/40 to-orange-900/20 border border-orange-700/40 hover:border-orange-600/60 rounded-2xl p-6 hover:shadow-lg hover:shadow-orange-600/20 transition-all group cursor-pointer" routerLink="/finapi">
-        <div class="w-14 h-14 bg-orange-600/30 group-hover:bg-orange-600/40 rounded-xl flex items-center justify-center mb-6 transition-colors shadow-lg shadow-orange-600/20">
-          <i class="fas fa-code text-orange-300 text-2xl"></i>
+
+      <!-- Netly Card -->
+      <div class="group cursor-pointer" routerLink="/netly">
+        <div class="relative bg-gradient-netly rounded-2xl overflow-hidden mb-6 h-56 sm:h-64 shadow-lg hover:shadow-2xl transition-shadow">
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+          <img ngSrc="assets/netly.png" alt="Netly - Net Worth Tracking" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width="400" height="280" />
         </div>
-        <h3 class="font-bold text-xl text-white mb-3 group-hover:text-orange-300 transition-colors">FinAPI</h3>
-        <p class="text-slate-300 text-base leading-relaxed font-medium mb-4">Free financial market data API with 14,000+ mutual funds, IPO details, and historical data for developers.</p>
-        <div class="flex items-center text-orange-400 font-semibold">
-          <span>Learn More</span>
-          <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+        <div class="px-2">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 bg-netly-600/20 rounded-xl flex items-center justify-center">
+              <i class="fas fa-chart-bar text-netly-600 text-lg"></i>
+            </div>
+            <h3 class="font-bold text-xl text-gray-900">Netly</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">Track your complete net worth across diverse assets and liabilities. Monitor investments, plan budgets, and visualize your financial health with powerful dashboards.</p>
+          <div class="flex items-center text-netly-600 font-semibold group-hover:gap-2 transition-all">
+            <span>Explore</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- FinAPI Card -->
+      <div class="group cursor-pointer" routerLink="/finapi">
+        <div class="relative bg-gradient-to-br from-orange-900/30 to-orange-900/10 rounded-2xl overflow-hidden mb-6 h-56 sm:h-64 shadow-lg hover:shadow-2xl transition-shadow p-8 flex items-center justify-center">
+          <div class="text-center">
+            <i class="fas fa-code text-orange-600 text-6xl mb-4"></i>
+            <p class="text-orange-600 font-semibold">Developer-First API</p>
+          </div>
+        </div>
+        <div class="px-2">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 bg-orange-600/20 rounded-xl flex items-center justify-center">
+              <i class="fas fa-code text-orange-600 text-lg"></i>
+            </div>
+            <h3 class="font-bold text-xl text-gray-900">FinAPI</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">Free access to Indian financial market data. Access 14,000+ mutual funds, IPO details, and historical NAV data—no authentication required.</p>
+          <div class="flex items-center text-orange-600 font-semibold group-hover:gap-2 transition-all">
+            <span>Explore</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </div>
         </div>
       </div>
     </div>
@@ -82,53 +114,69 @@
 </section>
 
 <!-- Service Health Overview -->
-<section class="bg-slate-800 border-y border-slate-700 py-8">
+<section class="bg-gradient-upvaly py-16 sm:py-20 lg:py-24 border-t border-upvaly-700/30">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-6">
-      <h2 class="text-xl font-bold text-white mb-2">Service Health Status</h2>
-      <p class="text-slate-300 text-sm">Real-time status of all Upvaly products</p>
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">Service Health Status</h2>
+      <p class="text-upvaly-200 text-lg sm:text-xl max-w-2xl mx-auto">Real-time monitoring of all Upvaly platform services</p>
     </div>
-    <div class="grid sm:grid-cols-3 gap-4">
-      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-xl p-4 hover:shadow-lg transition-all">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="font-bold text-white text-lg">Famvest</h3>
-          <i class="fas {{ getStatusIcon(healthStatus['famvest']?.api) }} {{ getStatusColor(healthStatus['famvest']?.api) }}"></i>
+    <div class="grid sm:grid-cols-3 gap-6">
+      <div class="bg-upvaly-800/50 border border-upvaly-700/40 rounded-2xl p-8 hover:shadow-lg hover:shadow-upvaly-600/20 transition-all">
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-famvest-600/20 rounded-lg flex items-center justify-center">
+              <i class="fas fa-users text-famvest-600 text-lg"></i>
+            </div>
+            <h3 class="font-bold text-white text-lg">Famvest</h3>
+          </div>
+          <i class="fas {{ getStatusIcon(healthStatus['famvest']?.api) }} {{ getStatusColor(healthStatus['famvest']?.api) }} text-lg"></i>
         </div>
-        <div class="space-y-2 text-sm">
-          <div class="flex justify-between">
-            <span class="text-slate-400">API Status:</span>
-            <span class="{{ getStatusColor(healthStatus['famvest']?.api) }} font-semibold">{{ healthStatus['famvest']?.api || 'unknown' }}</span>
+        <div class="space-y-3">
+          <div class="flex justify-between items-center p-3 bg-upvaly-900/50 rounded-lg">
+            <span class="text-upvaly-300">API Status</span>
+            <span class="{{ getStatusColor(healthStatus['famvest']?.api) }} font-semibold text-sm">{{ healthStatus['famvest']?.api || 'checking' }}</span>
           </div>
         </div>
       </div>
-      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-xl p-4 hover:shadow-lg transition-all">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="font-bold text-white text-lg">Netly</h3>
-          <i class="fas {{ getStatusIcon(healthStatus['netly']?.api) }} {{ getStatusColor(healthStatus['netly']?.api) }}"></i>
+      <div class="bg-upvaly-800/50 border border-upvaly-700/40 rounded-2xl p-8 hover:shadow-lg hover:shadow-upvaly-600/20 transition-all">
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-netly-600/20 rounded-lg flex items-center justify-center">
+              <i class="fas fa-chart-bar text-netly-600 text-lg"></i>
+            </div>
+            <h3 class="font-bold text-white text-lg">Netly</h3>
+          </div>
+          <i class="fas {{ getStatusIcon(healthStatus['netly']?.api) }} {{ getStatusColor(healthStatus['netly']?.api) }} text-lg"></i>
         </div>
-        <div class="space-y-2 text-sm">
-          <div class="flex justify-between">
-            <span class="text-slate-400">API Status:</span>
-            <span class="{{ getStatusColor(healthStatus['netly']?.api) }} font-semibold">{{ healthStatus['netly']?.api || 'unknown' }}</span>
+        <div class="space-y-3">
+          <div class="flex justify-between items-center p-3 bg-upvaly-900/50 rounded-lg">
+            <span class="text-upvaly-300">API Status</span>
+            <span class="{{ getStatusColor(healthStatus['netly']?.api) }} font-semibold text-sm">{{ healthStatus['netly']?.api || 'checking' }}</span>
           </div>
         </div>
       </div>
-      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-xl p-4 hover:shadow-lg transition-all">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="font-bold text-white text-lg">FinAPI</h3>
-          <i class="fas {{ getStatusIcon(healthStatus['finapi']?.api) }} {{ getStatusColor(healthStatus['finapi']?.api) }}"></i>
+      <div class="bg-upvaly-800/50 border border-upvaly-700/40 rounded-2xl p-8 hover:shadow-lg hover:shadow-upvaly-600/20 transition-all">
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center">
+              <i class="fas fa-code text-orange-600 text-lg"></i>
+            </div>
+            <h3 class="font-bold text-white text-lg">FinAPI</h3>
+          </div>
+          <i class="fas {{ getStatusIcon(healthStatus['finapi']?.api) }} {{ getStatusColor(healthStatus['finapi']?.api) }} text-lg"></i>
         </div>
-        <div class="space-y-2 text-sm">
-          <div class="flex justify-between">
-            <span class="text-slate-400">API Status:</span>
-            <span class="{{ getStatusColor(healthStatus['finapi']?.api) }} font-semibold">{{ healthStatus['finapi']?.api || 'unknown' }}</span>
+        <div class="space-y-3">
+          <div class="flex justify-between items-center p-3 bg-upvaly-900/50 rounded-lg">
+            <span class="text-upvaly-300">API Status</span>
+            <span class="{{ getStatusColor(healthStatus['finapi']?.api) }} font-semibold text-sm">{{ healthStatus['finapi']?.api || 'checking' }}</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="text-center mt-4">
-      <button routerLink="/health" class="text-teal-400 hover:text-teal-300 text-sm font-medium transition-colors">
-        View detailed health status <i class="fas fa-arrow-right ml-1"></i>
+    <div class="text-center mt-8">
+      <button routerLink="/health" class="inline-flex items-center gap-2 text-upvaly-300 hover:text-upvaly-200 font-semibold transition-colors">
+        View Detailed Health Status
+        <i class="fas fa-arrow-right"></i>
       </button>
     </div>
   </div>

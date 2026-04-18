@@ -1,150 +1,160 @@
-<section class="relative bg-gradient-to-br from-slate-950 via-gray-950 to-slate-900 pt-24 sm:pt-20 overflow-hidden">
+<section class="relative bg-gradient-upvaly pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
   <div class="absolute inset-0 pointer-events-none overflow-hidden">
-    <div class="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-gray-600/15 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-slate-600/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-20 left-1/4 w-[600px] h-[600px] bg-upvaly-600/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/3 w-[500px] h-[500px] bg-upvaly-500/8 rounded-full blur-3xl"></div>
   </div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-7">
-    <div class="text-center mb-10">
-      <div class="inline-flex items-center gap-2 bg-gray-500/15 border border-gray-500/30 rounded-full px-4 py-2 mb-4">
-        <span class="w-2.5 h-2.5 bg-gray-400 rounded-full animate-pulse"></span>
-        <span class="text-gray-300 text-xs sm:text-sm font-semibold tracking-wide">Service Health Monitoring</span>
-      </div>
-      <h1 class="text-5xl sm:text-6xl lg:text-6xl font-black text-white leading-tight mb-4">
-        Health<span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-slate-400 to-gray-400"> Status</span>
-      </h1>
-      <p class="text-slate-300 text-base sm:text-base leading-relaxed max-w-2xl mx-auto font-medium">Real-time monitoring of all Upvaly services and their dependencies. Status updates automatically every 30 seconds.</p>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="inline-flex items-center gap-2 bg-upvaly-600/20 border border-upvaly-500/40 rounded-full px-4 py-2.5 mb-6">
+      <span class="w-2 h-2 bg-upvaly-400 rounded-full animate-pulse"></span>
+      <span class="text-upvaly-300 text-xs sm:text-sm font-semibold tracking-wider">Real-time Service Monitoring</span>
     </div>
+    <h1 class="text-6xl sm:text-7xl font-black text-white leading-tight mb-6">
+      Service Health<span class="text-transparent bg-clip-text bg-gradient-to-r from-upvaly-400 via-upvaly-300 to-upvaly-500"> Status</span>
+    </h1>
+    <p class="text-upvaly-200 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto font-medium mb-4">Real-time monitoring of all Upvaly services and their dependencies. Status updates automatically every 30 seconds.</p>
   </div>
 </section>
 
 <!-- Health Status Cards -->
-<section class="bg-slate-800 border-y border-slate-700 py-12">
+<section class="bg-white py-16 sm:py-20 lg:py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid sm:grid-cols-1 lg:grid-cols-3 gap-8">
       <!-- Famvest -->
-      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-2xl p-8">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-2xl font-bold text-white">Famvest</h2>
-
+      <div class="bg-gradient-to-br from-famvest-50 to-famvest-100/50 border border-famvest-200 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+        <div class="flex items-center justify-between mb-8">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-famvest-600/20 rounded-lg flex items-center justify-center">
+              <i class="fas fa-users text-famvest-600 text-lg"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900">Famvest</h2>
+          </div>
+          <i class="fas {{ getStatusIcon(healthStatus['famvest']?.api) }} {{ getStatusColor(healthStatus['famvest']?.api) }} text-2xl"></i>
         </div>
 
         <div class="space-y-4 mb-6">
-
-          <div class="flex justify-between items-center p-3 bg-slate-800/50 rounded-lg">
-            <span class="text-slate-300">API Status</span>
+          <div class="flex justify-between items-center p-4 bg-white rounded-lg border border-famvest-200">
+            <span class="text-gray-700 font-semibold">API Status</span>
             <div class="flex items-center gap-2">
-              <span class="{{ getStatusColor(healthStatus['famvest'].api) }} font-semibold">{{ healthStatus['famvest'].api || 'unknown' }}</span>
-              <div class="w-3 h-3 rounded-full {{ getStatusBgColor(healthStatus['famvest'].api) }}"></div>
+              <span class="{{ getStatusColor(healthStatus['famvest']?.api) }} font-semibold capitalize">{{ healthStatus['famvest']?.api || 'checking' }}</span>
+              <div class="w-3 h-3 rounded-full {{ getStatusBgColor(healthStatus['famvest']?.api) }}"></div>
             </div>
           </div>
         </div>
 
-        <div *ngIf="healthStatus['famvest'].dependencies" class="mb-4">
-          <h3 class="text-slate-400 font-semibold mb-2">Dependencies</h3>
+        <div *ngIf="healthStatus['famvest']?.dependencies" class="mb-6">
+          <h3 class="text-gray-700 font-semibold mb-3">Dependencies</h3>
           <div class="space-y-2">
-            <div *ngFor="let dep of objectKeys(healthStatus['famvest'].dependencies)" class="flex justify-between items-center p-2 bg-slate-800/30 rounded">
-              <span class="text-slate-300 text-sm capitalize">{{ dep }}</span>
-              <span class="text-xs px-2 py-1 rounded-full" [ngClass]="healthStatus['famvest'].dependencies[dep] === 'UP' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'">
-                {{ healthStatus['famvest'].dependencies[dep] }}
+            <div *ngFor="let dep of objectKeys(healthStatus['famvest']?.dependencies || {})" class="flex justify-between items-center p-3 bg-white rounded border border-famvest-100">
+              <span class="text-gray-600 text-sm capitalize font-medium">{{ dep }}</span>
+              <span class="text-xs px-3 py-1 rounded-full font-semibold" [ngClass]="(healthStatus['famvest']?.dependencies?.[dep] || 'DOWN') === 'UP' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'">
+                {{ healthStatus['famvest']?.dependencies?.[dep] }}
               </span>
             </div>
           </div>
         </div>
 
-        <div class="text-xs text-slate-500">
-          Last checked: {{ healthStatus['famvest'].lastChecked ? formatLastChecked(healthStatus['famvest'].lastChecked) : 'Never' }}
+        <div class="text-xs text-gray-500 border-t border-famvest-200 pt-4">
+          Last checked: {{ healthStatus['famvest']?.lastChecked ? formatLastChecked(healthStatus['famvest']?.lastChecked!) : 'Never' }}
         </div>
       </div>
 
       <!-- Netly -->
-      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-2xl p-8">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-2xl font-bold text-white">Netly</h2>
-
+      <div class="bg-gradient-to-br from-netly-50 to-netly-100/50 border border-netly-200 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+        <div class="flex items-center justify-between mb-8">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-netly-600/20 rounded-lg flex items-center justify-center">
+              <i class="fas fa-chart-bar text-netly-600 text-lg"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900">Netly</h2>
+          </div>
+          <i class="fas {{ getStatusIcon(healthStatus['netly']?.api) }} {{ getStatusColor(healthStatus['netly']?.api) }} text-2xl"></i>
         </div>
 
         <div class="space-y-4 mb-6">
-
-          <div class="flex justify-between items-center p-3 bg-slate-800/50 rounded-lg">
-            <span class="text-slate-300">API Status</span>
+          <div class="flex justify-between items-center p-4 bg-white rounded-lg border border-netly-200">
+            <span class="text-gray-700 font-semibold">API Status</span>
             <div class="flex items-center gap-2">
-              <span class="{{ getStatusColor(healthStatus['netly'].api) }} font-semibold">{{ healthStatus['netly'].api || 'unknown' }}</span>
-              <div class="w-3 h-3 rounded-full {{ getStatusBgColor(healthStatus['netly'].api) }}"></div>
+              <span class="{{ getStatusColor(healthStatus['netly']?.api) }} font-semibold capitalize">{{ healthStatus['netly']?.api || 'checking' }}</span>
+              <div class="w-3 h-3 rounded-full {{ getStatusBgColor(healthStatus['netly']?.api) }}"></div>
             </div>
           </div>
         </div>
 
-        <div *ngIf="healthStatus['netly'].dependencies" class="mb-4">
-          <h3 class="text-slate-400 font-semibold mb-2">Dependencies</h3>
+        <div *ngIf="healthStatus['netly']?.dependencies" class="mb-6">
+          <h3 class="text-gray-700 font-semibold mb-3">Dependencies</h3>
           <div class="space-y-2">
-            <div *ngFor="let dep of objectKeys(healthStatus['netly'].dependencies)" class="flex justify-between items-center p-2 bg-slate-800/30 rounded">
-              <span class="text-slate-300 text-sm capitalize">{{ dep }}</span>
-              <span class="text-xs px-2 py-1 rounded-full" [ngClass]="healthStatus['netly'].dependencies[dep] === 'UP' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'">
-                {{ healthStatus['netly'].dependencies[dep] }}
+            <div *ngFor="let dep of objectKeys(healthStatus['netly']?.dependencies || {})" class="flex justify-between items-center p-3 bg-white rounded border border-netly-100">
+              <span class="text-gray-600 text-sm capitalize font-medium">{{ dep }}</span>
+              <span class="text-xs px-3 py-1 rounded-full font-semibold" [ngClass]="(healthStatus['netly']?.dependencies?.[dep] || 'DOWN') === 'UP' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'">
+                {{ healthStatus['netly']?.dependencies?.[dep] }}
               </span>
             </div>
           </div>
         </div>
 
-        <div class="text-xs text-slate-500">
-          Last checked: {{ healthStatus['netly'].lastChecked ? formatLastChecked(healthStatus['netly'].lastChecked) : 'Never' }}
+        <div class="text-xs text-gray-500 border-t border-netly-200 pt-4">
+          Last checked: {{ healthStatus['netly']?.lastChecked ? formatLastChecked(healthStatus['netly']?.lastChecked!) : 'Never' }}
         </div>
       </div>
 
       <!-- FinAPI -->
-      <div class="bg-gradient-to-br from-slate-700/50 to-slate-700/25 border border-slate-600/60 rounded-2xl p-8">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-2xl font-bold text-white">FinAPI</h2>
-
+      <div class="bg-gradient-to-br from-orange-50 to-orange-100/50 border border-orange-200 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+        <div class="flex items-center justify-between mb-8">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center">
+              <i class="fas fa-code text-orange-600 text-lg"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900">FinAPI</h2>
+          </div>
+          <i class="fas {{ getStatusIcon(healthStatus['finapi']?.api) }} {{ getStatusColor(healthStatus['finapi']?.api) }} text-2xl"></i>
         </div>
 
         <div class="space-y-4 mb-6">
-
-          <div class="flex justify-between items-center p-3 bg-slate-800/50 rounded-lg">
-            <span class="text-slate-300">API Status</span>
+          <div class="flex justify-between items-center p-4 bg-white rounded-lg border border-orange-200">
+            <span class="text-gray-700 font-semibold">API Status</span>
             <div class="flex items-center gap-2">
-              <span class="{{ getStatusColor(healthStatus['finapi'].api) }} font-semibold">{{ healthStatus['finapi'].api || 'unknown' }}</span>
-              <div class="w-3 h-3 rounded-full {{ getStatusBgColor(healthStatus['finapi'].api) }}"></div>
+              <span class="{{ getStatusColor(healthStatus['finapi']?.api) }} font-semibold capitalize">{{ healthStatus['finapi']?.api || 'checking' }}</span>
+              <div class="w-3 h-3 rounded-full {{ getStatusBgColor(healthStatus['finapi']?.api) }}"></div>
             </div>
           </div>
         </div>
 
-        <div *ngIf="healthStatus['finapi'].dependencies" class="mb-4">
-          <h3 class="text-slate-400 font-semibold mb-2">Dependencies</h3>
+        <div *ngIf="healthStatus['finapi']?.dependencies" class="mb-6">
+          <h3 class="text-gray-700 font-semibold mb-3">Dependencies</h3>
           <div class="space-y-2">
-            <div *ngFor="let dep of objectKeys(healthStatus['finapi'].dependencies)" class="flex justify-between items-center p-2 bg-slate-800/30 rounded">
-              <span class="text-slate-300 text-sm capitalize">{{ dep }}</span>
-              <span class="text-xs px-2 py-1 rounded-full" [ngClass]="healthStatus['finapi'].dependencies[dep] === 'UP' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'">
-                {{ healthStatus['finapi'].dependencies[dep] }}
+            <div *ngFor="let dep of objectKeys(healthStatus['finapi']?.dependencies || {})" class="flex justify-between items-center p-3 bg-white rounded border border-orange-100">
+              <span class="text-gray-600 text-sm capitalize font-medium">{{ dep }}</span>
+              <span class="text-xs px-3 py-1 rounded-full font-semibold" [ngClass]="(healthStatus['finapi']?.dependencies?.[dep] || 'DOWN') === 'UP' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'">
+                {{ healthStatus['finapi']?.dependencies?.[dep] }}
               </span>
             </div>
           </div>
         </div>
 
-        <div class="text-xs text-slate-500">
-          Last checked: {{ healthStatus['finapi'].lastChecked ? formatLastChecked(healthStatus['finapi'].lastChecked) : 'Never' }}
+        <div class="text-xs text-gray-500 border-t border-orange-200 pt-4">
+          Last checked: {{ healthStatus['finapi']?.lastChecked ? formatLastChecked(healthStatus['finapi']?.lastChecked!) : 'Never' }}
         </div>
       </div>
     </div>
 
     <!-- Legend -->
-    <div class="mt-8 text-center">
-      <div class="inline-flex items-center gap-6 bg-slate-800/50 rounded-lg p-4">
-        <div class="flex items-center gap-2">
+    <div class="mt-12 text-center">
+      <div class="inline-flex items-center gap-8 bg-gray-50 border border-gray-200 rounded-2xl px-8 py-6">
+        <div class="flex items-center gap-3">
           <div class="w-3 h-3 rounded-full bg-green-500"></div>
-          <span class="text-slate-300 text-sm">Healthy</span>
+          <span class="text-gray-700 font-medium">Healthy</span>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
           <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-          <span class="text-slate-300 text-sm">Degraded</span>
+          <span class="text-gray-700 font-medium">Degraded</span>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
           <div class="w-3 h-3 rounded-full bg-red-500"></div>
-          <span class="text-slate-300 text-sm">Down</span>
+          <span class="text-gray-700 font-medium">Down</span>
         </div>
-        <div class="flex items-center gap-2">
-          <div class="w-3 h-3 rounded-full bg-gray-500"></div>
-          <span class="text-slate-300 text-sm">Unknown</span>
+        <div class="flex items-center gap-3">
+          <div class="w-3 h-3 rounded-full bg-gray-400"></div>
+          <span class="text-gray-700 font-medium">Unknown</span>
         </div>
       </div>
     </div>
